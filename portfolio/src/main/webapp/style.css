@@ -93,11 +93,17 @@ body {
     opacity: 1;
   }
   .image {
-    display: block;
     width: 100px;
     height: 90px;
   }
 
   .imgContainer{
-    float:left;
+    float: left;
+    padding: 5px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
 }
