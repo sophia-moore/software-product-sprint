@@ -15,6 +15,8 @@
 /**
  * Adds a random greeting to the page.
  */
+
+
 function addRandomGreeting() {
   const greetings =
       ['We were on a break!', 'Pivot!', 'How you doin\'?', 'You\'re my lobster!'];
@@ -27,6 +29,7 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
+/*
 async function getGreeting() {
     const responseFromServer = await fetch('/hello');
     const textFromResponse = await responseFromServer.text();
@@ -35,3 +38,54 @@ async function getGreeting() {
     displayGreet.innerText = textFromResponse;
 
 }
+*/
+async function addRandomPlace() {
+    const responseFromServer = await fetch('/hello');
+    const dreamPlace = await responseFromServer.json();
+    const displayPlace = document.getElementById('display-place');
+   displayPlace.innerHTML = '';
+   const rand = await randNum(4);
+   
+   if (rand == 0) {
+     displayPlace.appendChild(
+       createListElement('In ' + dreamPlace.place1));
+   }
+
+   if (rand == 1) {
+   displayPlace.appendChild(
+       createListElement('In ' + dreamPlace.place2));
+   }
+
+   if (rand == 2) {
+    displayPlace.appendChild(
+       createListElement('In ' + dreamPlace.place3));
+   }
+
+   if (rand == 3) {
+    displayPlace.appendChild(
+       createListElement('In ' + dreamPlace.place4));
+    }
+  }
+
+  function randNum(num) {
+      return Math.floor(Math.random() * num);
+  }
+  
+  function createListElement(text) {
+    const liElement = document.createElement('li');
+    liElement.innerText = text;
+    return liElement;
+  }
+
+
+
+    
+   // const keys = dreamPlace.keys(names);
+   // const randKey = keys[randIndex];
+  //  const name = names[randKey];
+
+  //  displayPlace.innerText = dreamPlace.name;
+
+
+   // const displayPlace = document.getElementById('display-place');
+   // displayPlace.innerText = randPlace;
