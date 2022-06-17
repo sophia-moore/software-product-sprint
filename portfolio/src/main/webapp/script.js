@@ -16,6 +16,9 @@
  * Adds a random greeting to the page.
  */
 
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
 
 function addRandomGreeting() {
   const greetings =
@@ -76,6 +79,29 @@ async function addRandomPlace() {
     liElement.innerText = text;
     return liElement;
   }
+
+  /** Creates a chart and adds it to the page. */
+function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+        ['Language', 'Percent'],
+        ['Java',     71.4],
+        ['HTML',  10.9],
+        ['JavaScript',    16.4],
+        ['Other',  1.3],
+      ]);
+
+      var options = {
+        title: 'Main Programming Languages during Google SPS Program (per Github Repository) ',
+        is3D: true,
+        backgroundColor: { fill:'transparent' },
+        titleTextStyle:{ color: '#FFF'},
+        legendTextStyle:{ color: '#FFF'}
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('chart-container'));
+
+      chart.draw(data, options);
+}
 
 
 
