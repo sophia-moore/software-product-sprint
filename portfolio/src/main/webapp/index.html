@@ -1,19 +1,118 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Sophia Moore | Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/45e81a434d.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click <a href="/hello">here</a> to see content created by server code.</p>
-      <p>Click here to get a random message:</p>
+
+      <section class = "slide">
+        <div id="content" class = "heading-container">
+            <h1 class = "name">Sophia Moore</h1>
+            <div class = "social-logo">
+              <a href = "https://github.com/sophia-moore"> <img src="/images/github.png" alt = "Github Logo" width = "25" height = "25" /></a> &emsp;
+              <a href = "https://www.linkedin.com/in/sophia-moore-480b27208/"> <img src="/images/linkedin.png" alt = "LinkedIn Logo" width = "25" height = "25" /></a> &emsp;
+              <a href = "mailto:sophia.moore@yale.edu">  <img src="/images/gmail.png" alt = "Gmail Logo" width = "33.3" height = "25" /></a> &emsp;
+              <a href="sms:+19175895292?&body=Hi!"> <img src="/images/messages.png" alt = "Messages Logo" width = "25" height = "25" /></a>
+            </div>
+        </div>
+      </section>
+
+      <section class = "slide slide--blue" style = "height:20vh">
+        <! Programming Languages: -- is there some way to add racket>
+        <h3 style = "color:white; padding:3vh">Programming languages loading! &ensp;<i class="fa-solid fa-spinner fa-spin-pulse fa-1x" style = "color:white"></i> </h3> 
+
+        <div class = "social-logo"> 
+            <i class="fa-brands fa-html5 fa-2x fa-beat-fade" style="--fa-animation-duration: 3s; color:white"> &emsp; </i>  
+            <i class="fa-brands fa-java fa-2x fa-beat-fade" style="--fa-animation-duration: 3s; color:white"> &emsp; </i>  
+            <i class="fa-brands fa-js fa-2x fa-beat-fade" style="--fa-animation-duration: 3s; color: white"> &emsp; </i>  
+            <i class="fa-brands fa-css3-alt fa-2x fa-beat-fade" style="--fa-animation-duration: 3s; color:white"> &emsp; </i>  
+            <i class="fa-brands fa-r-project fa-2x fa-beat-fade" style="--fa-animation-duration: 3s; color:white"> &emsp; </i>  
+            <i class="fa-solid fa-c fa-2x fa-beat-fade" style="--fa-animation-duration: 3s; color:white"></i>
+        </div>
+      </section>
+
+      <h2>About</h2>
+      <img src = "/images/seniorpic2.jpg" alt = "Sophia Moore" style = "border-radius:50%; padding:10px;" align = "left", height = 100>
+      <p>Hi! My name is Sophia Moore. I am a student at Yale University
+        studying <a href = "http://catalog.yale.edu/ycps/subjects-of-instruction/computer-science-mathematics/">Computer Science & Mathematics</a>. I also pursuing a certificate in <a href = "https://statistics.yale.edu/academics/certificate-data-science">Data Science</a> in the university's department of Statistics and Data Science.
+        Outside the classroom, I am an a member of Yale's Varsity Swim & Dive team. I am also an Academic
+      Strategies Mentor, the founder and president of Girls Who Code @ Yale, and a member of Kappa Alpha Theta at Yale.
+      In my free time, I love to spend time with my family, hang out with my friends, read books, and try new foods! 
+      <p>You can click this button to see my resume: </p>
+      <div class = "center"><a href = "/images/Moore_Resume_2022.pdf"> <button type="button" class = "basicbutton button1" onclick="alert('By clicking \'OK,\' you will be redirected to a copy of Sophia Moore\'s resume that was last updated June of 2022.')">Resume!</button> </a></div>
+
+
+      <h2>Organizations</h2>
+    
+       <div class = "row">
+        <div class="contents imgContainer">
+        <img src="/images/ga.jpg" alt="GA logo" class="image">
+        <div class="overlay">
+          <div class="img-text">Greenwich Academy</div>
+        </div>
+        </div>
+      
+        <div class="contents imgContainer">
+            <img src="/images/CPAC.jpg" alt="CPAC logo" class="image">
+            <div class="overlay">
+              <div class="img-text">Chelsea Piers Aquatic Club</div>
+            </div>
+            </div>
+
+      
+        <div class="contents imgContainer">
+            <img src="/images/BGCA.jpg" alt="BGCA logo" class="image">
+            <div class="overlay">
+              <div class="img-text">Boys & Girls Club of Stamford</div>
+            </div>
+        </div>
+
+        <div class="contents imgContainer">
+        <img src="/images/yale.jpg" alt="Yale logo" class="image">
+        <div class="overlay">
+          <div class="img-text">Yale University</div>
+        </div>
+        </div>
+
+        <div class="contents imgContainer">
+            <img src="/images/gwc.png" alt="GWC logo" class="image">
+            <div class="overlay">
+              <div class="img-text">Girls Who Code</div>
+            </div>
+        </div>
+
+        </div>
+    
+      <br>
+      <h2>My Programming Languages</h2>
+      <div id="chart-container"></div>
+    
+
+      <br>
+      <p> Click this button to display a place I would want to live! </p>
+      <div class = "center"> <button type="button" class = "basicbutton button1" onclick = "addRandomPlace()">My Dream Place!</button></div>
+      <p id = "display-place"></p>
+
+      <p> Click <a href="/hello">here</a> to see content created by server code.</p>
+
+      <p>Click here to get a random <i>Friends</i> quote:</p>
       <button onclick="addRandomGreeting()">Hello</button>
       <div id="greeting-container"></div>
     </div>
+
+    <form action="/form-handler" method="POST">
+        <label for = "email">Submit your email to get in contact!</p>
+        <textarea id = "email" name="text-input">(Your Email Here)</textarea>
+        <br/>
+        <input type="submit" />
+        <input type="reset" />
+     </form>
+
   </body>
 </html>
